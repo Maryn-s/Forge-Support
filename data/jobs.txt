@@ -1,0 +1,51 @@
+# Copyright (c) 2024 by Myvee Somer
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+
+mission "Add Old Memory Licenses"
+	repeat
+	job
+	source
+		attributes forge
+	description "Gives you all Old Memory licenses."
+	to offer
+		or
+			not "license: OM Pilot"
+			not "license: Ebulum"
+			not "license: Lucentbit"
+			not "license: MF Researcher"
+			not "license: Vollsquor"
+			not "license: OM Navy"
+			not "license: Losan"
+	on accept
+		set "license: OM Pilot"
+		set "license: Ebulum"
+		set "license: Lucentbit"
+		set "license: MF Researcher"
+		set "license: Vollsquor"
+		set "license: OM Navy"
+		set "license: Losan"
+		fail
+
+mission "Remove Old Memory Licenses"
+	repeat
+	job
+	source
+		attributes forge
+	description "Removes all Old Memory licenses."
+	on accept
+		clear "license: OM Pilot"
+		clear "license: Ebulum"
+		clear "license: Lucentbit"
+		clear "license: MF Researcher"
+		clear "license: Vollsquor"
+		clear "license: OM Navy"
+		clear "license: Losan"
+		fail
